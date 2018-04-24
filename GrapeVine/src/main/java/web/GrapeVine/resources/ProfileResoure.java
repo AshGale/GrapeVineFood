@@ -12,22 +12,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 import web.GrapeVine.modules.Profile;
 import web.GrapeVine.service.MemberService;
 
-@Path("member")
+@Path("profile")
 @XmlRootElement
-public class MemberResoure {
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public class ProfileResoure {
 
 	public MemberService service = new MemberService();
 	
-	@GET
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
+	@GET	
 	@Path("/{id}")
 	public Response getRequestMember(@PathParam("id") Long id){
 		
 		System.out.println("int getRequestMember");
 		Profile member = service.getMember(id);
 		System.out.println("got Member: " + member.toString());
-		System.out.println("additonal message");
 		return Response.ok().entity("Get Request for Member: \n\r "+member).build();
 		
 	}

@@ -13,7 +13,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.cfg.Configuration;
 
 import web.GrapeVine.modules.Profile;
-import web.GrapeVine.resources.MemberResoure;
+import web.GrapeVine.resources.ProfileResoure;
 
 public class MemberService {
 

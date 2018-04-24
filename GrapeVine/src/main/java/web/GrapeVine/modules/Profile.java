@@ -13,9 +13,18 @@ public class Profile {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	Long id;
+	String role;
 	String name;
 	String userName;
-	String role;
+	String email;
+	String password;//TODO add encryption and privacy
+	String allergys;//TODO make object booleans
+	String preferances;//TODO make object booleans
+	String dislikes;//TODO make object Dynamic list or eg 5 items
+	String diet;//TODO make object of set of dislikes
+	String defaultLocation; //TODO on maps determine coordinates for optimisation
+	
+	
 	
 	public Profile() {
 		super();
