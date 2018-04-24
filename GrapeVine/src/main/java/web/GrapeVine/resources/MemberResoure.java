@@ -27,6 +27,7 @@ public class MemberResoure {
 		System.out.println("int getRequestMember");
 		Profile member = service.getMember(id);
 		System.out.println("got Member: " + member.toString());
+		System.out.println("additonal message");
 		return Response.ok().entity("Get Request for Member: \n\r "+member).build();
 		
 	}
