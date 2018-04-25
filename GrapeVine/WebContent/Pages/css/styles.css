@@ -1,0 +1,146 @@
+* {
+border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.header {
+  grid-area: header;
+  padding-top: 1em;
+  min-height: 3em;
+}
+
+.menu {
+  grid-area: menu;
+  padding-top: 1em;
+}
+
+.main {
+  grid-area: main;
+  padding-top: 1em;
+}
+
+.right {
+  grid-area: right;
+  padding-top: 1em;
+}
+
+.footer {
+  grid-area: footer;
+  padding-top: 1em;
+  min-height: 3em;
+
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas: 'header header header header header header' 'menu main main main main right' 'footer footer footer footer footer footer';
+  height: 100vh; //to make the height expand to the screen
+  background-color: rgba(150, 150, 150, .5); //background-color: #2196F3;
+  padding: 10px;
+  grid-gap: 5px;
+
+}
+
+.grid-container>div {
+  background-color: rgba(0, 128, 255, .7);
+  text-align: center;
+  padding: 10px 5;
+  font-size: 21px;
+}
+
+.html {
+  padding-top: 0em;
+}
+
+.body {
+  padding-top: 0em;
+}
+
+.sitename {
+  padding-top: 0em;
+}
+
+.nav {
+  text-decoration: none; //remove underline
+}
+
+
+
+/*********************************************/
+
+form {
+  padding: 1em;
+  background: #f9f9f9;
+  border: 1px solid #c1c1c1;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+
+form input {
+  margin-bottom: 1rem;
+  background: #fff;
+  border: 1px solid #9c9c9c;
+}
+
+form button {
+  background: lightgrey;
+  padding: 0.7em;
+  border: 0;
+}
+
+form button:hover {
+  background: gold;
+}
+
+label {
+  text-align: right;
+  display: block;
+  padding: 0.5em 1.5em 0.5em 0;
+}
+
+input {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+}
+
+input:focus {
+  outline: 3px solid Green;
+}
+
+
+form {
+  overflow: hidden;
+}
+
+label {
+  float: left;
+  width: 200px;
+}
+
+input {
+  float: left;
+  width: calc(100% - 200px);
+}
+
+input[type="checkbox"] {
+
+  background-color: #2196F3;
+  height: 1em;
+  width: 1em;
+}
+
+input[type="radio"] {
+  height: 1em;
+  width: 1em;
+}
+
+button {
+  float: right;
+  width: calc(100% - 200px);
+}
+
+@media (min-width: 400px) {}

@@ -15,7 +15,7 @@ import org.hibernate.cfg.Configuration;
 import web.GrapeVine.modules.Profile;
 import web.GrapeVine.resources.ProfileResoure;
 
-public class MemberService {
+public class ProfileService {
 
 
 	EntityManagerFactory entityManagerFactory = null;
@@ -26,12 +26,12 @@ public class MemberService {
 
 	
 	
-	public MemberService() {
+	public ProfileService() {
 		super();
 		this.init();
 	}
 
-	public MemberService(EntityManagerFactory entityManagerFactory, EntityManager entityManager,
+	public ProfileService(EntityManagerFactory entityManagerFactory, EntityManager entityManager,
 			CriteriaBuilder criteriaBuilder, CriteriaQuery<Object> criteriaQuery, Root<Profile> fromRoot) {
 		super();
 		this.entityManagerFactory = entityManagerFactory;
@@ -54,31 +54,51 @@ public class MemberService {
 		//criteriaQuery.select(fromRoot);
 	}
 
-	public Profile getMember(Long id) {
+	public Profile getProfile(Long id) {
 		
-		//try http://localhost:8080/GrapeVine/api/member/1
-		
-		System.out.println("In getMember");
-		
-		//for save
 		entityManager.getTransaction().begin();
-		//Profile newProfile = new Profile();
-		System.out.println("saving member");
-		entityManager.persist(new Profile());
-		System.out.println("commiting member");
-		entityManager.getTransaction().commit();
-		
-		
-		System.out.println("Starting Transaction");
-		entityManager.getTransaction().begin();
-		
 		Profile profile = (Profile) entityManager.find(Profile.class, id);
-		
-		entityManager.getTransaction().commit();
-		
-		
-		//List<MemberResoure> members = (List<MemberResoure>) criteriaQuery.where(criteriaBuilder.equal(fromRoot.get("id"), id));
+		entityManager.getTransaction().commit();	
 		return profile;
+	}
+
+	public Profile createProfile(Profile profile) {
+		
+		entityManager.getTransaction().begin();
+		entityManager.persist(profile);
+		entityManager.getTransaction().commit();
+		//entityManager.flush();
+		return profile;
+	}
+
+	public Profile updateProfile(Profile profile) {
+
+		entityManager.getTransaction().begin();
+		entityManager.persist(profile);
+		//Profile dbProfile = (Profile) entityManager.find(Profile.class, profile.getId());
+		//dbProfile = profile;
+		entityManager.getTransaction().commit();
+		entityManager.flush();
+		return profile;
+	}
+
+	public void deleteProfile(Profile profile) {
+		entityManager.getTransaction().begin();
+		entityManager.remove(profile);
+		entityManager.getTransaction().commit();
+		entityManager.flush();
 		
 	}
+
+	public Profile getProfile(String username, String password) {
+
+		entityManager.getTransaction().begin();
+		
+		Profile dbProfile = (Profile) entityManager.find(Profile.class, 1);//TODO add in Criteria
+		
+		entityManager.getTransaction().commit();
+		entityManager.flush();
+		return dbProfile;
+	}
+
 }

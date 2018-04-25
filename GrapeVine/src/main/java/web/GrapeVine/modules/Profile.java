@@ -1,5 +1,6 @@
 package web.GrapeVine.modules;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,16 +14,26 @@ public class Profile {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	Long id;
+	@Column
 	String role;
+	@Column
 	String name;
+	@Column
 	String userName;
+	@Column
 	String email;
+	@Column
 	String password;//TODO add encryption and privacy
 	//Eating Habits
+	@Column
 	String allergys;//TODO make object booleans
+	@Column
 	String preferances;//TODO make object booleans
+	@Column
 	String dislikes;//TODO make object Dynamic list or eg 5 items
+	@Column
 	String diet;//TODO make object of set of dislikes
+	@Column
 	String defaultLocation; //TODO on maps determine coordinates for optimisation
 	
 	public Profile() {
