@@ -35,14 +35,9 @@ public class ProfileService {
 	}
 
 	public void init() {
-		System.out.println("Initilizing");
-		// configuration = new Configuration().configure("persistence.xml");//na not
-		// working
 		entityManagerFactory = Persistence.createEntityManagerFactory("hibernate");
-		System.out.println("made factory");
 		entityManager = entityManagerFactory.createEntityManager();
 		criteriaBuilder = entityManager.getCriteriaBuilder();
-
 	}
 
 	public Profile getProfile(Long id) {
@@ -104,5 +99,4 @@ public class ProfileService {
 		entityManager.getTransaction().commit();
 		return dbProfile;
 	}
-
 }
