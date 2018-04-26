@@ -10,6 +10,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -28,7 +29,7 @@ public class ProfileResoure {
 	public ProfileService service = new ProfileService();
 
 	@GET
-	public Response getFilterRequestProfile(@PathParam("username") String username, @PathParam("password") String password) {
+	public Response getFilterRequestProfile(@QueryParam("username") String username, @QueryParam("password") String password) {
 
 		System.out.println("in getRequestProfileLogin");
 		Profile getprofile = service.getProfile(username,password);

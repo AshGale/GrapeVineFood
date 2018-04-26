@@ -8,9 +8,11 @@ $(document).ready(function() {
 		//var url = "http://localhost:8080/GrapeVine/api/profile";
 		//var messageFormat ="application/json; charset=utf-8";
 		var data = null;
-		var url = "http://localhost:8080/GrapeVine/api/profile/0?username=";
+		var url = "http://localhost:8080/GrapeVine/api/profile?username=";
 		
 		url += $('#loginUserName').val();
+		url += "&password=";
+		url += $('#loginPassword').val();
 		
 		console.log(url);
 
