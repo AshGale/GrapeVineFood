@@ -21,6 +21,7 @@ $(document).ready(function() {
 			//data : data,
 			success : function(data) {
 				console.log("Responce body from Server: \n" + JSON.stringify(data));
+				$("#responce").html(JSON.stringify(data, null, 4));
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -61,6 +62,7 @@ $(document).ready(function() {
 			data : data,
 			success : function(data) {
 				console.log("Responce body from Server: \n" + JSON.stringify(data));
+				$("#responce").html(JSON.stringify(data, null, 4));
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
