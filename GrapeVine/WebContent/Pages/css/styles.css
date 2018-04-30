@@ -1,7 +1,7 @@
 * {
   border-radius: 15px;
   box-sizing: border-box;
-  color: black;//font color
+  color: black; //font color
 }
 
 body {
@@ -12,13 +12,11 @@ body {
   grid-area: header;
   padding-top: 1em;
   min-height: 3em;
-
 }
 
 .menu {
   grid-area: menu;
   padding-top: 1em;
-
 }
 
 .main {
@@ -35,7 +33,6 @@ body {
   grid-area: footer;
   padding-top: 1em;
   min-height: 3em;
-
 }
 
 .grid-container {
@@ -44,11 +41,11 @@ body {
   height: 100vh; //to make the height expand to the screen
   padding: 10px;
   grid-gap: 5px;
-
 }
 
 .grid-container>div {
-  background-color: #007ee5;;
+  background-color: #007ee5;
+  ;
   border-style: solid;
   border-width: 3px;
   border-color: #a0a8bd;
@@ -61,9 +58,7 @@ body {
   text-decoration: none; //remove underline
 }
 
-
-
-/*********************************************/
+/********************form*************************/
 
 form {
   padding: 1em;
@@ -75,6 +70,7 @@ form {
   margin-right: auto;
   padding: 1em;
   border: 3px solid #a0a8bd;
+  overflow: hidden;
 }
 
 form input {
@@ -97,35 +93,25 @@ label {
   text-align: right;
   display: block;
   padding: 0.5em 1.5em 0.5em 0;
+  float: left;
+  width: 200px;
 }
+
+/********************inputs*************************/
 
 input {
   width: 100%;
   padding: 0.7em;
   margin-bottom: 0.5rem;
+  float: left;
+  width: calc(100% - 200px);
 }
 
 input:focus {
   outline: 3px solid Green;
 }
 
-
-form {
-  overflow: hidden;
-}
-
-label {
-  float: left;
-  width: 200px;
-}
-
-input {
-  float: left;
-  width: calc(100% - 200px);
-}
-
 input[type="checkbox"] {
-
   background-color: #47525d;
   height: 1em;
   width: 1em;
@@ -141,6 +127,8 @@ button {
   width: calc(100% - 200px);
 }
 
+/********************displays*************************/
+
 pre {
   border: 1px solid #c1c1c1;
   margin-top: 2rem;
@@ -148,13 +136,91 @@ pre {
   margin-left: auto;
   margin-right: auto;
   padding: 1em;
-	height: 300px;
-	border-color: Grey;
-	overflow-y: scroll;
+  height: 300px;
+  border-color: Grey;
+  overflow-y: scroll;
   background: #fff;
   border-style: solid;
   border-width: 3px;
   border-color: #a0a8bd;
 }
 
-@media (min-width: 400px) {}
+/********************page function*************************/
+.switch {
+	position: relative;
+	width: 150px;
+	height: 40px;
+  right: 50%;
+  left: 45%;
+	padding: 3px;
+	margin: 0 10px 10px 0;
+	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 40px);
+	box-sizing:content-box;
+}
+
+.switch-label {
+	position: relative;
+	display: block;
+	height: inherit;
+	font-size: 13px;
+	text-transform: uppercase;
+	background: #eceeef;
+	border-radius: inherit;
+
+}
+.switch-label:before, .switch-label:after {
+	position: absolute;
+	top: 50%;
+	margin-top: -.5em;
+}
+.switch-label:before {
+	content: attr(data-off);
+	right: 11px;
+  content:
+}
+.switch-label:after {
+	content: attr(data-on);
+	left: 11px;
+}
+
+.switch-handle {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 40px;
+	height: 40px;
+	background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+	border-radius: 100%;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.switch-handle:before {
+  content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -6px;
+	width: 12px;
+	height: 12px;
+	background-image: -webkit-linear-gradient(top, #aaaaaa, #FFFFFF);
+	border-radius: 6px;
+}
+.switch-input:checked ~ .switch-handle {
+	left: 110px;
+	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.switch-input:focus{
+  outline: none;
+}
+
+/* Transition */
+.switch-label, .switch-handle {
+	transition: All 1s ease;
+}
+
+@media (max-width: 400px) {
+	body {
+	  background-color: red;
+	}
+}

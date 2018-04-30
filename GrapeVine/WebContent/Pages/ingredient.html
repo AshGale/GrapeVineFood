@@ -2,21 +2,18 @@
 <html>
 
 <head>
-<link href="css/styles.css" rel="stylesheet">
-<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
-<!-- JavaScriptScripts -->
-<script src="javascript/jquery-3.2.1.js"></script>
-<script src="javascript/ingredientConector.js" type="text/javascript"></script>
+	<link href="css/styles.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+	<!-- JavaScriptScripts -->
+	<script src="javascript/jquery-3.2.1.js"></script>
+	<script src="javascript/ingredientConector.js" type="text/javascript"></script>
 </head>
 
 <body>
 	<h1 class="sitename">GrapeVine grid layout</h1>
 	<div class="grid-container">
 		<div class="header">
-			<a class="nav" href="home.html">Home</a> | <a class="nav"
-				href="eatingHabits.html">Eating Habits</a> | <a class="nav"
-				href="ingredient.html">Ingredient</a> | <a class="nav"
-				href="login.html">Login/Register</a>
+			<a class="nav" href="home.html">Home</a> | <a class="nav" href="eatingHabits.html">Eating Habits</a> | <a class="nav" href="ingredient.html">Ingredient</a> | <a class="nav" href="login.html">Login/Register</a>
 		</div>
 		<div class="menu">
 			Popular Meals:
@@ -52,28 +49,25 @@
 
 		<div class="main">
 			<h1>Ingredient Details</h1>
-			<h3>Fetch Ingredient Details From Database By Name</h3>
-			<form id="ingredientExist">
-				<label for="ingredientName" class="ingredientName">Name</label> <input
-					id="ingredientName" type="text">
-				<button id="submitIngredientExist" name="submitIngredientExist">
+			<label class="switch" align="center">
+				<input id="switch" class="switch-input" type="checkbox" onclick="switchLayout()"/>
+				<span  class="switch-label" data-on="New" data-off="Get"></span>
+				<span class="switch-handle"></span>
+			</label><br></br>
+			<h3 id="IngredientTitle">Fetch Ingredient Details From Database By Name</h3>
+			<form id="ingredient">
+				<label for="name" class="name">Name</label>
+				<input id="name" type="text">
+				<label for="allergy" class="allergy">Allergy</label>
+				<input id="allergy" type="text">
+				<label for="singleWeight" class="singleWeight">Single Weight</label>
+				<input id="singleWeight" type="text"> <label for="nutritionalValue" class="nutritionalValue">Nutritional Value</label>
+				<input id="nutritionalValue" type="text"> <label for="ReadOn" class="ReadOn">Read On</label>
+				<input id="ReadOn" type="text">
+				<label for="image" class="image">Image</label>
+				<input id="image" type="image">
+				<button id="submitIngredient" name="submitIngredient">
 					Check if ingredient exists in database</button>
-			</form>
-			
-			<h3>Create or Update new ingredient</h3>
-			<form id="sendNew">
-				<label for="name" class="name">Name</label> <input id="name"
-					type="text"> <label for="allergy" class="allergy">Allergy</label>
-				<input id="allergy" type="text"> <label for="singleWeight"
-					class="singleWeight">Single Weight</label> <input id="singleWeight"
-					type="text"> <label for="nutritionalValue"
-					class="nutritionalValue">Nutritional Value</label> <input
-					id="nutritionalValue" type="text"> <label for="ReadOn"
-					class="ReadOn">Read On</label> <input id="ReadOn" type="text">
-				<label for="image" class="image">Image</label> <input id="image"
-					type="image">
-				<button id="submitNewIngredient" name="submitNewIngredient">
-					Save or update ingredient</button>
 			</form>
 			<h3 id="responceCounter">Message From server:</h3>
 			<pre class="responce" align="left" id="responce"></pre>
@@ -82,8 +76,7 @@
 			<!-- adds-->
 		</div>
 		<div class="footer">
-			<a class="nav" href="about.html">About</a> | <a class="nav"
-				href="contact.html">Contact</a> | <a class="nav" href="help.html">Help</a>
+			<a class="nav" href="about.html">About</a> | <a class="nav" href="contact.html">Contact</a> | <a class="nav" href="help.html">Help</a>
 		</div>
 	</div>
 
