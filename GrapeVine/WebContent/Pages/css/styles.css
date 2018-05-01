@@ -127,6 +127,8 @@ button {
   width: calc(100% - 200px);
 }
 
+
+
 /********************displays*************************/
 
 pre {
@@ -145,82 +147,118 @@ pre {
   border-color: #a0a8bd;
 }
 
+input[type="image"] {
+  height:300px;
+}
+
+/********************pageination*************************/
+
+#pages{
+  display: inline-block;
+  background-color: #FFFFFF;
+  height: 2em;
+  padding: .5em .5em .5em 0.5em;
+}
+
+#previous {
+  width: 100px;
+  height: 2em;
+  float: left;
+
+}
+#displayPage{
+  text-align: center;
+  width: 100px;
+  display: inline;
+  float: inherit;
+  padding: 1em 2em 1em 2em;
+}
+#next {
+  width: 100px;
+  height: 2em;
+  float: right;
+}
 /********************page function*************************/
+
 .switch {
-	position: relative;
-	width: 150px;
-	height: 40px;
+  position: relative;
+  width: 150px;
+  height: 40px;
   right: 50%;
-  left: 45%;
-	padding: 3px;
-	margin: 0 10px 10px 0;
-	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 40px);
-	box-sizing:content-box;
+  left: 40%;
+  padding: 3px;
+  margin: 0 10px 10px 0;
+  background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 40px);
+  box-sizing: content-box;
 }
 
 .switch-label {
-	position: relative;
-	display: block;
-	height: inherit;
-	font-size: 13px;
-	text-transform: uppercase;
-	background: #eceeef;
-	border-radius: inherit;
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 13px;
+  text-transform: uppercase;
+  background: #eceeef;
+  border-radius: inherit;
+}
 
-}
 .switch-label:before, .switch-label:after {
-	position: absolute;
-	top: 50%;
-	margin-top: -.5em;
+  position: absolute;
+  top: 50%;
+  margin-top: -.5em;
 }
+
 .switch-label:before {
-	content: attr(data-off);
-	right: 11px;
+  content: attr(data-off);
+  right: 11px;
   content:
 }
+
 .switch-label:after {
-	content: attr(data-on);
-	left: 11px;
+  content: attr(data-on);
+  left: 11px;
 }
 
 .switch-handle {
-	position: absolute;
-	top: 4px;
-	left: 4px;
-	width: 40px;
-	height: 40px;
-	background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
-	border-radius: 100%;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 40px;
+  height: 40px;
+  background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+  border-radius: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 .switch-handle:before {
   content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -6px 0 0 -6px;
-	width: 12px;
-	height: 12px;
-	background-image: -webkit-linear-gradient(top, #aaaaaa, #FFFFFF);
-	border-radius: 6px;
-}
-.switch-input:checked ~ .switch-handle {
-	left: 110px;
-	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
-
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  width: 12px;
+  height: 12px;
+  background-image: -webkit-linear-gradient(top, #aaaaaa, #FFFFFF);
+  border-radius: 6px;
 }
 
-.switch-input:focus{
+.switch-input:checked~.switch-handle {
+  left: 110px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.switch-input:focus {
   outline: none;
 }
 
 /* Transition */
+
 .switch-label, .switch-handle {
-	transition: All 1s ease;
+  transition: All 1s ease;
 }
 
 @media (max-width: 400px) {
-	body {
-	  background-color: red;
-	}
+  body {
+    background-color: red;
+  }
 }

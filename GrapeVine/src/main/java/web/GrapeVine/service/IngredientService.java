@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
@@ -77,25 +78,22 @@ public class IngredientService {
 
 	}
 
-	public Ingredient getIngredient(String name) {
-
+	public List<Ingredient> getIngredient(String name) {
+		
+		//http://www.baeldung.com/jpa-pagination
 		entityManager.getTransaction().begin();
 
-		CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery();
+		CriteriaQuery<Ingredient> criteriaQuery = criteriaBuilder.createQuery(Ingredient.class);
 		Root<Ingredient> fromRoot = criteriaQuery.from(Ingredient.class);
 		criteriaQuery.select(fromRoot);
-
 		criteriaQuery.where(criteriaBuilder.equal(fromRoot.get("name"), name));
-
-		List<Object> resultList = entityManager.createQuery(criteriaQuery).getResultList();
-		Ingredient dbIngredient = null;
-		if (resultList.isEmpty()) {
-			// Handle Error
-		} else {
-			dbIngredient = (Ingredient) resultList.get(0);
-		}
+		
+		TypedQuery<Ingredient> typedQuery  =  entityManager.createQuery(criteriaQuery);
+		typedQuery.setFirstResult(0);
+		typedQuery.setMaxResults(10);
+		List<Ingredient> resultList = typedQuery.getResultList();
 
 		entityManager.getTransaction().commit();
-		return dbIngredient;
+		return resultList;
 	}
 }

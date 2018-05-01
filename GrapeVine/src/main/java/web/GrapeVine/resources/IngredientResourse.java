@@ -1,5 +1,7 @@
 package web.GrapeVine.resources;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -27,7 +29,7 @@ public class IngredientResourse {
 	@GET
 	public Response getFilterRequestIngredient(@QueryParam("name") String name) {
 
-		Ingredient getIngredient = service.getIngredient(name);
+		List<Ingredient> getIngredient = service.getIngredient(name);
 		return Response.ok().entity(getIngredient).build();
 
 	}
