@@ -14,7 +14,9 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+import web.GrapeVine.modules.Allergy;
 import web.GrapeVine.modules.Ingredient;
+import web.GrapeVine.modules.Nutrition;
 
 public class IngredientService {
 
@@ -44,6 +46,34 @@ public class IngredientService {
 	public Ingredient getIngredient(Long id) {
 
 		entityManager.getTransaction().begin();
+//		//TODO remove test code http://localhost:8080/GrapeVine/api/ingredient/0
+//		Allergy allergy = new Allergy();
+//		allergy.setNut(true);
+//		allergy.setSulfites(true);
+//		allergy.setTartrazine(true);
+//		allergy.setFruit(true);
+//		
+//		Nutrition nutrition = new Nutrition();
+//		nutrition.setCalcium(0);
+//		nutrition.setFiber(30);
+//		nutrition.setFat(4);
+//		
+//		Ingredient newIngredient = new Ingredient();
+//		newIngredient.setName("Orange");
+//		newIngredient.setSingleWeight(80);
+//		newIngredient.setAllergy(allergy);
+//		newIngredient.setNutritionalValue(nutrition);
+//		
+//		//entityManager.persist(allergy);
+//		entityManager.persist(newIngredient);
+//		entityManager.flush();
+//		Long dbid = newIngredient.getIdIngredient();
+//		Ingredient dbIngredient = (Ingredient) entityManager.find(Ingredient.class, dbid);
+//		entityManager.getTransaction().commit();
+//		return dbIngredient;
+//		//end test code
+		
+		
 		Ingredient Ingredient = (Ingredient) entityManager.find(Ingredient.class, id);
 		entityManager.getTransaction().commit();
 		return Ingredient;
@@ -54,19 +84,17 @@ public class IngredientService {
 		entityManager.getTransaction().begin();
 		entityManager.persist(Ingredient);
 		entityManager.getTransaction().commit();
-		// entityManager.flush();
 		return Ingredient;
 	}
 
 	public Ingredient updateIngredient(Ingredient Ingredient) {
-
+		System.out.println("update");
 		entityManager.getTransaction().begin();
-		entityManager.persist(Ingredient);
-		// Ingredient dbIngredient = (Ingredient) entityManager.find(Ingredient.class,
-		// Ingredient.getId());
-		// dbIngredient = Ingredient;
+		 Ingredient dbIngredient = (Ingredient) entityManager.find(Ingredient.class,Ingredient.getIdIngredient());
+		 
+		 entityManager.merge(Ingredient);
+
 		entityManager.getTransaction().commit();
-		entityManager.flush();
 		return Ingredient;
 	}
 
@@ -74,7 +102,6 @@ public class IngredientService {
 		entityManager.getTransaction().begin();
 		entityManager.remove(Ingredient);
 		entityManager.getTransaction().commit();
-		entityManager.flush();
 
 	}
 

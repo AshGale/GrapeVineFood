@@ -31,7 +31,6 @@ public class IngredientResourse {
 
 		List<Ingredient> getIngredient = service.getIngredient(name);
 		return Response.ok().entity(getIngredient).build();
-
 	}
 
 	@GET
@@ -40,7 +39,6 @@ public class IngredientResourse {
 
 		Ingredient getIngredient = service.getIngredient(id);
 		return Response.ok().entity(getIngredient).build();
-
 	}
 
 	@POST
@@ -48,7 +46,6 @@ public class IngredientResourse {
 
 		Ingredient createdIngredient = service.createIngredient(ingredient);
 		return Response.ok().entity(createdIngredient).build();
-
 	}
 
 	@PUT
@@ -56,7 +53,6 @@ public class IngredientResourse {
 
 		Ingredient updatedIngredient = service.updateIngredient(ingredient);
 		return Response.ok().entity(updatedIngredient).build();
-
 	}
 
 	@DELETE
@@ -65,7 +61,6 @@ public class IngredientResourse {
 
 		service.deleteIngredient(ingredient);
 		return Response.ok().entity(null).build();
-
 	}
 
 }

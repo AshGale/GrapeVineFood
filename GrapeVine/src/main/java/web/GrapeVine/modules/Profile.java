@@ -1,10 +1,11 @@
 package web.GrapeVine.modules;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -13,37 +14,30 @@ public class Profile {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	Long id;
-	@Column
+	Long idProfile;
 	String role;
-	@Column
 	String name;
-	@Column
 	String userName;
-	@Column
 	String email;
-	@Column
 	String password;//TODO add encryption and privacy
 	//Eating Habits
-	@Column
-	String allergys;//TODO make object booleans
-	@Column
-	String preferances;//TODO make object booleans
-	@Column
+	@OneToOne(cascade = {CascadeType.ALL})	
+	Allergy allergys;
+	@OneToOne(cascade = {CascadeType.ALL})
+	Preferance preferances;
 	String dislikes;//TODO make object Dynamic list or eg 5 items
-	@Column
 	String diet;//TODO make object of set of dislikes
-	@Column
 	String defaultLocation; //TODO on maps determine coordinates for optimisation
 	
 	public Profile() {
 		super();
+
 	}
 
-	public Profile(Long id, String role, String name, String userName, String email, String password, String allergys,
-			String preferances, String dislikes, String diet, String defaultLocation) {
+	public Profile(Long idProfile, String role, String name, String userName, String email, String password,
+			Allergy allergys, Preferance preferances, String dislikes, String diet, String defaultLocation) {
 		super();
-		this.id = id;
+		this.idProfile = idProfile;
 		this.role = role;
 		this.name = name;
 		this.userName = userName;
@@ -56,12 +50,12 @@ public class Profile {
 		this.defaultLocation = defaultLocation;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getIdProfile() {
+		return idProfile;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdProfile(Long idProfile) {
+		this.idProfile = idProfile;
 	}
 
 	public String getRole() {
@@ -104,19 +98,19 @@ public class Profile {
 		this.password = password;
 	}
 
-	public String getAllergys() {
+	public Allergy getAllergys() {
 		return allergys;
 	}
 
-	public void setAllergys(String allergys) {
+	public void setAllergys(Allergy allergys) {
 		this.allergys = allergys;
 	}
 
-	public String getPreferances() {
+	public Preferance getPreferances() {
 		return preferances;
 	}
 
-	public void setPreferances(String preferances) {
+	public void setPreferances(Preferance preferances) {
 		this.preferances = preferances;
 	}
 
@@ -146,11 +140,10 @@ public class Profile {
 
 	@Override
 	public String toString() {
-		return "Profile [id=" + id + ", role=" + role + ", name=" + name + ", userName=" + userName + ", email=" + email
-				+ ", password=" + password + ", allergys=" + allergys + ", preferances=" + preferances + ", dislikes="
-				+ dislikes + ", diet=" + diet + ", defaultLocation=" + defaultLocation + "]";
+		return "Profile [idProfile=" + idProfile + ", role=" + role + ", name=" + name + ", userName=" + userName
+				+ ", email=" + email + ", password=" + password + ", allergys=" + allergys + ", preferances="
+				+ preferances + ", dislikes=" + dislikes + ", diet=" + diet + ", defaultLocation=" + defaultLocation
+				+ "]";
 	}
-	
 
-	
 }

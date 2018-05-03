@@ -77,6 +77,15 @@ form input {
   margin-bottom: 1rem;
   background: #fff;
   border: 3px solid #a0a8bd;
+  //float: right;
+}
+
+#spacer{
+  opacity: 0;
+}
+
+.id{
+  //display:none;
 }
 
 form button {
@@ -96,6 +105,8 @@ label {
   float: left;
   width: 200px;
 }
+
+
 
 /********************inputs*************************/
 
@@ -257,8 +268,8 @@ input[type="image"] {
   transition: All 1s ease;
 }
 
-@media (max-width: 400px) {
-  body {
+@media (max-width: 500px) {
+  body {//TODO implement mobile version
     background-color: red;
   }
 }

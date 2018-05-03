@@ -56,23 +56,62 @@
 			</label><br></br>
 			<h3 id="IngredientTitle">Fetch Ingredient Details From Database By Name</h3>
 
-			<div id="pages">
+			<div visability="hidden" id="pages">
 				<button id="previous" name="previous" onclick="previousPage()">previous</button>
 				<label id="displayPage">1 of 1</label>
 				<button id="next" name="next" onclick="nextPage()">next</button>
 			</div>
 
+			<!--                     Main Form                            -->
 			<form id="ingredient">
+				<label for="idIngredient" class="id" >idIngredient</label>
+				<input id="idIngredient" class="id" type="text">
 				<label for="name" class="name">Name</label>
 				<input id="name" type="text">
-				<label for="allergy" class="allergy">Allergy</label>
-				<input id="allergy" type="text">
-				<label for="singleWeight" class="singleWeight">Single Weight</label>
-				<input id="singleWeight" type="text"> <label for="nutritionalValue" class="nutritionalValue">Nutritional Value</label>
-				<input id="nutritionalValue" type="text"> <label for="ReadOn" class="ReadOn">Read On</label>
-				<input id="ReadOn" type="text">
 				<label for="image" class="image">Image</label>
 				<input id="image" type="image">
+				<label for="singleWeight" class="singleWeight">Single Weight</label>
+				<input id="singleWeight" type="text">
+				<label for="ReadOn" class="ReadOn">Read On</label>
+				<input id="ReadOn" type="text">
+
+				<h4>Nutrition</h4>
+				<label for="idNutrition" class="id" class="nutrition" >idNutrition</label><input id="idNutrition" class="id" class="nutrition" type="text">
+				<label for="weight" class="nutrition">Weight</label><input id="weight" class="nutrition" type="text">
+				<label for="energy" class="nutrition">Energy</label><input id="energy" class="nutrition" type="text">
+				<label for="energyJ" class="nutrition">Energy J</label><input id="energyJ" class="energyJ" type="text">
+				<label for="protein" class="nutrition">Protein</label><input id="protein" class="nutrition" type="text">
+				<label for="carbohydrate" class="nutrition">Carbohydrate</label><input id="carbohydrate" class="nutrition" type="text">
+				<label for="sugar" class="nutrition">Sugar</label><input id="sugar" class="nutrition" type="text">
+				<label for="fiber" class="nutrition">Fiber</label><input id="fiber" class="nutrition" type="text">
+				<label for="fat" class="nutrition">Fat</label><input id="fat" class="nutrition" type="text">
+				<label for="saturatedFat" class="nutrition">Saturated Fat</label><input id="saturatedFat" class="nutrition" type="text">
+				<label for="cholesterol" class="nutrition">Cholesterol</label><input id="cholesterol" class="nutrition" type="text">
+				<label for="calcium" class="nutrition">Calcium</label><input id="calcium" class="nutrition" type="text">
+				<label for="iron" class="nutrition">Iron</label><input id="iron" class="nutrition" type="text">
+				<label for="sodium" class="nutrition">Sodium</label><input id="sodium" class="nutrition" type="text">
+
+				<h4>Allergys</h4>
+				<label for="idAllergy" class="id" class="allergy" ><input id="idAllergy" class="id" type="text">idAllergy</label>
+				<label for="nut" class="allergy"><input id="nut" type="checkbox">Nut</label>
+				<label for="seafood" class="allergy"><input id="seafood" type="checkbox">Seafood</label>
+				<label for="shellfish" class="allergy"><input id="shellfish" type="checkbox">Shellfish</label>
+				<label for="soy" class="allergy"><input id="soy" type="checkbox">Soy</label>
+				<label for="milk" class="allergy"><input id="milk" type="checkbox">Milk</label>
+				<label for="wheat" class="allergy"><input id="wheat" type="checkbox">Wheat</label>
+				<label for="gluten" class="allergy"><input id="gluten" type="checkbox">Gluten</label>
+				<label for="eggs" class="allergy"><input id="eggs" type="checkbox">Eggs</label>
+				<label for="fruit" class="allergy"><input id="fruit" type="checkbox">Fruit</label>
+				<label for="garlic" class="allergy"><input id="garlic" type="checkbox">Garlic</label>
+				<label for="hotPeppers" class="allergy"><input id="hotPeppers" type="checkbox">Hot Peppers</label>
+				<label for="oats" class="allergy"><input id="oats" type="checkbox">Oats</label>
+				<label for="meat" class="allergy"><input id="meat" type="checkbox">Meat</label>
+				<label for="rice" class="allergy"><input id="rice" type="checkbox">Rice</label>
+				<label for="sesame" class="allergy"><input id="sesame" type="checkbox">Sesame</label>
+				<label for="sulfites" class="allergy"><input id="sulfites" type="checkbox">Sulfites</label>
+				<label for="tartrazine" class="allergy"><input id="tartrazine" type="checkbox">Tartrazine</label>
+				<label for="spacer" class="allergy"><input id="spacer" type="checkbox"></label>
+
 				<button id="submitIngredient" name="submitIngredient">
 					Check if ingredient exists in database</button>
 			</form>
