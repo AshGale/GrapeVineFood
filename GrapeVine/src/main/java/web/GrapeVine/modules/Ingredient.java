@@ -3,6 +3,7 @@ package web.GrapeVine.modules;
 import java.sql.Blob;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,8 @@ public class Ingredient {
 	@Id//TODO store on seperate db
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	Long idIngredient;
+	//@Id
+	@Column(unique=true)
 	String name;
 	@OneToOne(cascade = {CascadeType.ALL})
 	Allergy allergy;

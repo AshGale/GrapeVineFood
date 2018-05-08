@@ -67,7 +67,7 @@
 				<label for="idIngredient" class="id" >idIngredient</label>
 				<input id="idIngredient" class="id" type="text">
 				<label for="name" class="name">Name</label>
-				<input id="name" type="text">
+				<input id="name" type="text" onfocus="clearIds()" >
 				<label for="image" class="image">Image</label>
 				<input id="image" type="image">
 				<label for="singleWeight" class="singleWeight">Single Weight</label>
@@ -112,7 +112,7 @@
 				<label for="tartrazine" class="allergy"><input id="tartrazine" type="checkbox">Tartrazine</label>
 				<label for="spacer" class="allergy"><input id="spacer" type="checkbox"></label>
 
-				<button id="submitIngredient" name="submitIngredient">
+				<button id="submitIngredient" type="submit" name="submitIngredient">
 					Check if ingredient exists in database</button>
 			</form>
 			<h3 id="responceCounter">Message From server:</h3>

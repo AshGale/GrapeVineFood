@@ -40,6 +40,14 @@ public class IngredientResourse {
 		Ingredient getIngredient = service.getIngredient(id);
 		return Response.ok().entity(getIngredient).build();
 	}
+	
+	@GET
+	@Path("/exists")
+	public Response checkIfExistIngredient(@QueryParam("name") String name) {
+
+		Ingredient namedIngredient = service.getNamedIngredient(name);
+		return Response.ok().entity(namedIngredient).build();
+	}
 
 	@POST
 	public Response createRequestIngredient(Ingredient ingredient) {

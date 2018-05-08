@@ -1,6 +1,17 @@
 var serverData = null;
 var currentPage = 0;
 
+function clearIds(){
+  //prevent overriding existing ingredients
+  document.getElementById("idIngredient").value = null;
+  document.getElementById("idAllergy").value = null;
+  document.getElementById("idNutrition").value = null;
+  serverData = null;
+  currentPage = 0;
+}
+
+/**************************get or new*****************************************/
+
 function switchLayout() {
   //change layout when switched
   var newIngredient = document.getElementById('switch').checked;
@@ -86,7 +97,10 @@ function fillForm( ingredient) {
   $('#sulfites').prop('checked', ingredient.allergy.sulfites);
   $('#tartrazine').prop('checked', ingredient.allergy.tartrazine);
 
-  $("#displayPage").html((currentPage + 1) + " of " + serverData.length);
+  if(serverData)
+  {
+    $("#displayPage").html((currentPage + 1) + " of " + serverData.length);
+  }
 }
 
 function fetchFormData(){
@@ -157,12 +171,12 @@ $(document).ready(function() {
 			var Ingredient = fetchFormData();
       var method ='POST';
 
-      if(Ingredient.idIngredient != null)
+      if($('#idIngredient').val())//evaluates to fales if null
       {
         method = 'PUT';
       }
 
-      console.log("method: " + method + " id: "+Ingredient.idIngredient + "|");
+      console.log("method: " + method + " id: "+$('#idIngredient').val() + "|");
 
 
 			data = JSON.stringify(Ingredient);
@@ -173,8 +187,9 @@ $(document).ready(function() {
         url: url,
         contentType: "application/json; charset=utf-8",
         data: data,
-        success: function(data) {
-          $("#responce").html(JSON.stringify(data, null, 4));
+        success: function(fromServer) {
+          $("#responce").html(JSON.stringify(fromServer, null, 4));
+            fillForm(fromServer) //single instance
         },
         error: function(jqXHR, textStatus, errorThrown) {
           console.log(jqXHR);
@@ -193,12 +208,14 @@ $(document).ready(function() {
       var myForm = document.getElementById('ingredient');
       var allInputs = myForm.getElementsByTagName('input');
       url += '?';
-      for (var i = 0; i < allInputs.length; i++) {
+      for (var i = 0; i < allInputs.length; i++) {//TODO add foreach
         var input = allInputs[i];
         if (input.value != "") {
           url += input.id + '=' + input.value + '&';
         }
       }
+
+
       console.log(url); //TODO tidy last &;
 
       $.ajax({
