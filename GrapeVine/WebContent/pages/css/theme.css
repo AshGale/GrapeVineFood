@@ -97,7 +97,7 @@ input:focus {
 input[type=text] {
     min-width: 250px;
     text-shadow:none;
-    text-transform: lowercase;
+    /* text-transform: lowercase; */
 }
 
 input[type=checkbox] {

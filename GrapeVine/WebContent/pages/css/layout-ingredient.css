@@ -46,40 +46,6 @@ body, html {}
     background: var(--basiccolor);
     width: 100%;
 }
-
-/* banner */
-.banner {
-    background-color: var(--themecolor);
-    padding: 1em;
-    margin-top: 20vh;
-    margin-bottom: 20vh;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: repeat(3, auto);
-    justify-content: center;
-    grid-gap: 0em;
-    text-align: center;
-}
-
-.mission{
-  grid-row: 1 / 2;
-  grid-column: 1 / -1;
-  margin: 0em 0em 0em 0em;
-
-}
-
-.subheader{
-  grid-row: 2 / 3;
-  grid-column: 1 / -1;
-  margin: 1em 0em 1em 0em;
-}
-
-.banner button{
-  grid-column: auto;
-  grid-row: 3 / 4;
-  max-width: 400px;
-}
-
 /* Main */
 .main {
     grid-column: 1 / 5;
@@ -121,8 +87,6 @@ body, html {}
     grid-column: 1 / -1;
 }
 
-
-
 #ingredient input[type=text] {
     grid-column: 2 / -1;
     color: black;
@@ -140,18 +104,23 @@ body, html {}
 }
 
 /********************function*************************/
-.method{
-  
+.method-container{
+  background: var(--formcolor);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  border: 2px solid black;
+  overflow: hidden;
+  border-radius: var(--borderRadius);
 }
 
 /********************displays*************************/
 
 /********************pageination*************************/
 
-#pages{
-  display: inline-block;
-  padding: .5em .5em .5em .5em;
-  margin: 0;
+.pages{
+  margin-top: 1em;
 }
 
 #previous {

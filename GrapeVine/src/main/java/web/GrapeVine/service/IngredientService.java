@@ -46,43 +46,44 @@ public class IngredientService {
 	public Ingredient getIngredient(Long id) {
 
 		entityManager.getTransaction().begin();
-		//TODO remove test code http://localhost:8080/GrapeVine/api/ingredient/0
-		Allergy allergy = new Allergy();
-		allergy.setNut(true);
-		allergy.setSulfites(true);
-		allergy.setTartrazine(true);
-		allergy.setFruit(true);
-		
-		Nutrition nutrition = new Nutrition();
-		nutrition.setCalcium(0);
-		nutrition.setFiber(30);
-		nutrition.setFat(4);
-		
-		Ingredient newIngredient = new Ingredient();
-		newIngredient.setName("Orange");
-		newIngredient.setSingleWeight(80);
-		newIngredient.setAllergy(allergy);
-		newIngredient.setNutritionalValue(nutrition);
-		
-		//entityManager.persist(allergy);
-		entityManager.persist(newIngredient);
-		entityManager.flush();
-		Long dbid = newIngredient.getIdIngredient();
-		Ingredient dbIngredient = (Ingredient) entityManager.find(Ingredient.class, dbid);
-		entityManager.getTransaction().commit();
-		return dbIngredient;
-		//end test code
-		
-		
-//		Ingredient Ingredient = (Ingredient) entityManager.find(Ingredient.class, id);
+//		//TODO remove test code http://localhost:8080/GrapeVine/api/ingredient/0
+//		Allergy allergy = new Allergy();
+//		allergy.setNut(true);
+//		allergy.setSulfites(true);
+//		allergy.setTartrazine(true);
+//		allergy.setFruit(true);
+//		
+//		Nutrition nutrition = new Nutrition();
+//		nutrition.setCalcium(0);
+//		nutrition.setFiber(30);
+//		nutrition.setFat(4);
+//		
+//		Ingredient newIngredient = new Ingredient();
+//		newIngredient.setName("Orange");
+//		newIngredient.setSingleWeight(80);
+//		newIngredient.setAllergy(allergy);
+//		newIngredient.setNutritionalValue(nutrition);
+//		
+//		//entityManager.persist(allergy);
+//		entityManager.persist(newIngredient);
+//		entityManager.flush();
+//		Long dbid = newIngredient.getIdIngredient();
+//		Ingredient dbIngredient = (Ingredient) entityManager.find(Ingredient.class, dbid);
 //		entityManager.getTransaction().commit();
-//		return Ingredient;
+//		return dbIngredient;
+//		//end test code
+		
+		
+		Ingredient Ingredient = (Ingredient) entityManager.find(Ingredient.class, id);
+		entityManager.getTransaction().commit();
+		return Ingredient;
 	}
 
 	public Ingredient createIngredient(Ingredient ingredient) {
 		
 		Ingredient exists = getNamedIngredient(ingredient.getName());
 		if(exists != null) {
+			System.out.println(ingredient.getName() + " exists in db");
 			return exists;
 		}
 		else {
@@ -105,10 +106,10 @@ public class IngredientService {
 			ingredient.setIdIngredient((Long)null);
 			
 			Allergy allergy = ingredient.getAllergy();
-			allergy.setIdAllergy((Long)null);//not working//TODO add full ingrediant assignment with no id's
+			//allergy.setIdAllergy((Long)null);//not working//TODO add full ingrediant assignment with no id's
 			ingredient.setAllergy(allergy);
-			ingredient.getAllergy().setIdAllergy((Long)null);//not working
-			ingredient.getNutritionalValue().setIdNutrition((Long)null);
+			//ingredient.getAllergy().setIdAllergy((Long)null);//not working
+			//ingredient.getNutritionalValue().setIdNutrition((Long)null);
 			return createIngredient(ingredient);
 		}
 		else {
@@ -123,9 +124,11 @@ public class IngredientService {
 
 	public void deleteIngredient(Ingredient Ingredient) {
 		entityManager.getTransaction().begin();
-		entityManager.remove(Ingredient);
+		Ingredient remove = (Ingredient) entityManager.find(Ingredient.class, Ingredient.getIdIngredient());
+		entityManager.remove(remove);
 		entityManager.getTransaction().commit();
-
+		//entityManager.flush();
+		//entityManager.clear();
 	}
 
 	public List<Ingredient> getIngredient(String name) {

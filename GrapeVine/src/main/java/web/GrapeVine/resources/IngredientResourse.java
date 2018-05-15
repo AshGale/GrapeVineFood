@@ -62,11 +62,19 @@ public class IngredientResourse {
 		Ingredient updatedIngredient = service.updateIngredient(ingredient);
 		return Response.ok().entity(updatedIngredient).build();
 	}
-
+	
 	@DELETE
-	@Path("/{id}")
 	public Response deleteRequestIngredient(Ingredient ingredient) {
 
+		service.deleteIngredient(ingredient);
+		return Response.ok().entity(null).build();
+	}
+	
+	@DELETE
+	@Path("/{id}")
+	public Response deleteselectedIngredient(Ingredient ingredient) {
+		//TODO add new method with no paramiters and gets instance to remove
+		System.out.println("revise logic at this point");
 		service.deleteIngredient(ingredient);
 		return Response.ok().entity(null).build();
 	}

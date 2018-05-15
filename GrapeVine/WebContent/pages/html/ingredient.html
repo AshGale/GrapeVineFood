@@ -10,9 +10,9 @@
 	<script src="../javascript/jquery-3.2.1.js"></script>
 	<script src="../javascript/ingredientConector.js" type="text/javascript"></script>
 
-<style>
+	<style>
 
-</style>
+	</style>
 </head>
 
 <body>
@@ -28,31 +28,30 @@
 			<h1>Ingredient Details</h1>
 
 			<h2 class="method title">Fetch Ingredient</h2>
-
-
-			<!--                     Main Form                            -->
-			<form id="ingredient">
-				<div class="method-container">
-					<input id="fetch" value="fetch" name="method" type="radio" checked></input>
-					<label for="fetch" >Fetch</label>
-					<input id="new" value="new" name="method" type="radio"></input>
-					<label for="new" >New</label>
-					<input id="update" value="update" name="method" type="radio"></input>
-					<label for="update" >Update</label>
-					<input id="delete" value="delete" name="method" type="radio"></input>
-					<label for="delete" >Delete</label>
-				</div>
-				<div visability="hidden" id="pages">
-				<!-- <div id="pages"> -->
+			<div class="method-container">
+				<input id="fetch" value="GET" name="method" type="radio" checked></input>
+				<label for="fetch" title="Get all  by form">Fetch</label>
+				<input id="new" value="POST" name="method" type="radio"></input>
+				<label for="new" title="Create or Get name">New</label>
+				<input id="update" value="PUT" name="method" type="radio"></input>
+				<label for="update" title="Update, Get or Create">Update</label>
+				<input id="delete" value="DELETE" name="method" type="radio"></input>
+				<label for="delete" title="Fetch, then Delete">Delete</label>
+				<div visability="hidden" class="pages">
 					<button id="previous" name="previous" onclick="previousPage()">previous</button>
 					<label id="displayPage">1 of 1</label>
 					<button id="next" name="next" onclick="nextPage()">next</button>
 				</div>
+			</div>
+
+			<!--                     Main Form                            -->
+			<form id="ingredient">
+
 				<div class="general-container">
 					<h2>General Details</h2>
 					<label for="idIngredient" class="general id">idIngredient</label>
 					<input id="idIngredient" class="general id" type="text">
-					<label for="name" class="general">Name</label>
+					<label for="name" class="general" title="On focus remove ID's">Name</label>
 					<input id="name" class="general" type="text" onfocus="clearIds()">
 					<label for="image" class="general">Image</label>
 					<input id="image" class="general" type="image">
@@ -79,7 +78,7 @@
 					<label for="sodium" class="nutrition">Sodium</label><input id="sodium" class="nutrition" type="text">
 				</div>
 				<div class="allergy-container">
-				<h2>Allergys</h2>
+					<h2>Allergys</h2>
 					<label for="idAllergy" class="allergy id"><input id="idAllergy" class="allergy id" type="text">idAllergy</label>
 					<label for="nut" class="allergy"><input id="nut" type="checkbox">Nut</label>
 					<label for="seafood" class="allergy"><input id="seafood" type="checkbox">Seafood</label>
@@ -101,7 +100,7 @@
 					<label for="spacer" class="allergy spacer"><input id="spacer" class="spacer" type="checkbox"></label>
 				</div>
 				<button id="submitIngredient" type="submit" name="submitIngredient">
-					Query ingredient</button>
+					Query Ingredient</button>
 			</form>
 			<h3 id="responceCounter">Message From server:</h3>
 			<pre class="responce" align="left" id="responce"></pre>
