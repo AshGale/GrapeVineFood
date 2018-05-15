@@ -11,7 +11,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-	    window.location = "Pages/home.html";//redirect to home
+	    window.location = "pages/html/home.html";//redirect to home
 	</script>
 </body>
 

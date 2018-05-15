@@ -1,0 +1,130 @@
+* {
+    font-family: courier, verdana;
+    font-weight: 600;
+    color: white;
+    text-shadow: -1px -1px black, 1px -1px black, -1px 1px black, 1px 1px black;
+}
+
+body, html{
+  //height: 100%;
+  //overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 100px 0 0; //height of LOGO;
+    /* colors for styles */
+    --basiccolor: rgba(34, 139, 34, 1);
+    --themecolor: rgba(34, 139, 34, .5); //rgba(34, 139, 34, .6);
+    --formcolor: rgba(34, 139, 34, .85); //rgba(0, 126, 229, .6);
+    --fullcolor: rgba(10, 175, 10, 1); //rgba(0, 0, 255,  1);
+    /* css variables */
+    --borderRadius: 21px;
+    --inputSize: 1.5em;
+    background-image: url("../assets/lilly-background.jpg"); //lilly;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/********************form*************************/
+
+form *{
+
+  border-radius: var(--borderRadius);
+}
+form {
+    background: var(--formcolor);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    border: 2px solid black;
+    overflow: hidden;
+    border-radius: var(--borderRadius);
+}
+
+form h2 {
+    width: 100%;
+    text-align: center;
+}
+
+form label {
+    text-align: left;
+    max-width: 200px;
+}
+
+
+.spacer {
+    opacity: 0;
+}
+
+.id {
+    display: none;
+}
+
+/********************text-display*************************/
+
+pre {
+  border: 1px solid #c1c1c1;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  height: 300px;
+  border-color: Grey;
+  overflow-y: scroll;
+  background: #fff;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #a0a8bd;
+}
+/********************inputs*************************/
+
+input {
+    padding: 0.7em; //width: calc(100% - 200px);//@flex layout support;
+    margin-bottom: 1rem;
+    background: #fff;
+    border: 2px solid black; //float: right;
+}
+
+input:focus {
+    outline: 2px solid Orange;
+}
+
+input[type=text] {
+    min-width: 250px;
+    text-shadow:none;
+    text-transform: lowercase;
+}
+
+input[type=checkbox] {
+  height: var(--inputSize);
+  width: var(--inputSize);
+}
+
+input[type=radio] {
+    height: var(--inputSize);
+    width: var(--inputSize);
+}
+
+button {
+    background: var(--themecolor);
+    font-size: 1.2em;
+    font-style: bold;
+    padding: .5em;
+}
+
+button:hover {
+    background: var(--fullcolor); //background: green;
+}
+
+/********************displays*************************/
+
+/********************pageination*************************/
+
+/********************page function*************************/
+
+/********************phone friendly*************************/

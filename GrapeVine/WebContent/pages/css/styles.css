@@ -1,0 +1,276 @@
+* {
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: black; //font color
+}
+
+body {
+  background-color: #47525d;
+}
+
+.header {
+  grid-area: header;
+  padding-top: 1em;
+  min-height: 3em;
+}
+
+.menu {
+  grid-area: menu;
+  padding-top: 1em;
+}
+
+.main {
+  grid-area: main;
+  padding-top: 1em;
+}
+
+.right {
+  grid-area: right;
+  padding-top: 1em;
+}
+
+.footer {
+  grid-area: footer;
+  padding-top: 1em;
+  min-height: 3em;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'header header header header header header'
+  'menu main main main main right'
+  'footer footer footer footer footer footer';
+  height: 100vh; //to make the height expand to the screen
+  padding: 10px;
+  grid-gap: 5px;
+}
+
+.grid-container>div {
+  background-color: #007ee5;
+  ;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #a0a8bd;
+  text-align: center;
+  padding: 10px 5;
+  font-size: 21px;
+}
+
+.nav {
+  text-decoration: none; //remove underline
+}
+
+/********************form*************************/
+
+form {
+  padding: 1em;
+  background: #f9f9f9;
+  border: 1px solid #c1c1c1;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  border: 3px solid #a0a8bd;
+  overflow: hidden;
+}
+
+form input {
+  margin-bottom: 1rem;
+  background: #fff;
+  border: 3px solid #a0a8bd;
+  //float: right;
+}
+
+form button {
+  background: #a0a8bd;
+  padding: 0.7em;
+  border: 0;
+}
+
+form button:hover {
+  background: Green;
+}
+
+label {
+  text-align: right;
+  display: block;
+  padding: 0.5em 1.5em 0.5em 0;
+  float: left;
+  width: 200px;
+}
+
+#spacer{
+  opacity: 0;
+}
+
+.id{
+  //display:none;
+}
+
+/********************inputs*************************/
+
+input {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+  float: left;
+  width: calc(100% - 200px);
+}
+
+input:focus {
+  outline: 3px solid Green;
+}
+
+input[type="checkbox"] {
+  background-color: #47525d;
+  height: 1em;
+  width: 1em;
+}
+
+input[type="radio"] {
+  height: 1em;
+  width: 1em;
+}
+
+button {
+  float: right;
+  width: calc(100% - 200px);
+}
+
+
+
+/********************displays*************************/
+
+pre {
+  border: 1px solid #c1c1c1;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  height: 300px;
+  border-color: Grey;
+  overflow-y: scroll;
+  background: #fff;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #a0a8bd;
+}
+
+input[type="image"] {
+  height:300px;
+}
+
+/********************pageination*************************/
+
+#pages{
+  display: inline-block;
+  background-color: #FFFFFF;
+  height: 2em;
+  padding: .5em .5em .5em 0.5em;
+}
+
+#previous {
+  width: 100px;
+  height: 2em;
+  float: left;
+
+}
+#displayPage{
+  text-align: center;
+  width: 100px;
+  display: inline;
+  float: inherit;
+  padding: 1em 2em 1em 2em;
+}
+#next {
+  width: 100px;
+  height: 2em;
+  float: right;
+}
+/********************page function*************************/
+
+.switch {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  right: 50%;
+  left: 40%;
+  padding: 3px;
+  margin: 0 10px 10px 0;
+  background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 40px);
+  box-sizing: content-box;
+}
+
+.switch-label {
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 13px;
+  text-transform: uppercase;
+  background: #eceeef;
+  border-radius: inherit;
+}
+
+.switch-label:before, .switch-label:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.switch-label:before {
+  content: attr(data-off);
+  right: 11px;
+  content:
+}
+
+.switch-label:after {
+  content: attr(data-on);
+  left: 11px;
+}
+
+.switch-handle {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 40px;
+  height: 40px;
+  background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+  border-radius: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.switch-handle:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  width: 12px;
+  height: 12px;
+  background-image: -webkit-linear-gradient(top, #aaaaaa, #FFFFFF);
+  border-radius: 6px;
+}
+
+.switch-input:checked~.switch-handle {
+  left: 110px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.switch-input:focus {
+  outline: none;
+}
+
+/* Transition */
+
+.switch-label, .switch-handle {
+  transition: All 1s ease;
+}
+
+@media (max-width: 500px) {
+  body {//TODO implement mobile version
+    background-color: red;
+  }
+}

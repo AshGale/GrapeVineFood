@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>GrapeVineFood</title>
+	<link href="../css/theme.css" rel="stylesheet">
+	<link href="../css/layout-ingredient.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+	<!-- JavaScriptScripts -->
+	<script src="../javascript/jquery-3.2.1.js"></script>
+	<script src="../javascript/ingredientConector.js" type="text/javascript"></script>
+
+<style>
+
+</style>
+</head>
+
+<body>
+	<div class="header">
+		<img src="../assets/logo.png" />
+		<a class="nav" href="home.html">Home</a>
+		<a class="nav" href="preferences.html">Preferences</a>
+		<a class="nav" href="ingredient.html">Ingredient</a>
+		<a class="nav" href="login.html">Login/Register</a>
+	</div>
+	<div class="grid-container">
+		<div class="main">
+			<h1>Ingredient Details</h1>
+
+			<h2 class="method title">Fetch Ingredient</h2>
+
+
+			<!--                     Main Form                            -->
+			<form id="ingredient">
+				<div class="method-container">
+					<input id="fetch" value="fetch" name="method" type="radio" checked></input>
+					<label for="fetch" >Fetch</label>
+					<input id="new" value="new" name="method" type="radio"></input>
+					<label for="new" >New</label>
+					<input id="update" value="update" name="method" type="radio"></input>
+					<label for="update" >Update</label>
+					<input id="delete" value="delete" name="method" type="radio"></input>
+					<label for="delete" >Delete</label>
+				</div>
+				<div visability="hidden" id="pages">
+				<!-- <div id="pages"> -->
+					<button id="previous" name="previous" onclick="previousPage()">previous</button>
+					<label id="displayPage">1 of 1</label>
+					<button id="next" name="next" onclick="nextPage()">next</button>
+				</div>
+				<div class="general-container">
+					<h2>General Details</h2>
+					<label for="idIngredient" class="general id">idIngredient</label>
+					<input id="idIngredient" class="general id" type="text">
+					<label for="name" class="general">Name</label>
+					<input id="name" class="general" type="text" onfocus="clearIds()">
+					<label for="image" class="general">Image</label>
+					<input id="image" class="general" type="image">
+					<label for="singleWeight" class="general">Size</label>
+					<input id="singleWeight" class="general" type="text">
+					<label for="ReadOn" class="general">Read On</label>
+					<input id="ReadOn" class="general" type="text">
+				</div>
+				<div class="nutrition-container">
+					<h2>Nutrition</h2>
+					<label for="idNutrition" class="nutrition id">idNutrition</label><input id="idNutrition" class="nutrition id" type="text">
+					<label for="weight" class="nutrition">Weight</label><input id="weight" class="nutrition" type="text">
+					<label for="energy" class="nutrition">Energy</label><input id="energy" class="nutrition" type="text">
+					<label for="energyJ" class="nutrition">Energy J</label><input id="energyJ" class="nutrition" type="text">
+					<label for="protein" class="nutrition">Protein</label><input id="protein" class="nutrition" type="text">
+					<label for="carbohydrate" class="nutrition">Carbohydrate</label><input id="carbohydrate" class="nutrition" type="text">
+					<label for="sugar" class="nutrition">Sugar</label><input id="sugar" class="nutrition" type="text">
+					<label for="fiber" class="nutrition">Fiber</label><input id="fiber" class="nutrition" type="text">
+					<label for="fat" class="nutrition">Fat</label><input id="fat" class="nutrition" type="text">
+					<label for="saturatedFat" class="nutrition">Saturated Fat</label><input id="saturatedFat" class="nutrition" type="text">
+					<label for="cholesterol" class="nutrition">Cholesterol</label><input id="cholesterol" class="nutrition" type="text">
+					<label for="calcium" class="nutrition">Calcium</label><input id="calcium" class="nutrition" type="text">
+					<label for="iron" class="nutrition">Iron</label><input id="iron" class="nutrition" type="text">
+					<label for="sodium" class="nutrition">Sodium</label><input id="sodium" class="nutrition" type="text">
+				</div>
+				<div class="allergy-container">
+				<h2>Allergys</h2>
+					<label for="idAllergy" class="allergy id"><input id="idAllergy" class="allergy id" type="text">idAllergy</label>
+					<label for="nut" class="allergy"><input id="nut" type="checkbox">Nut</label>
+					<label for="seafood" class="allergy"><input id="seafood" type="checkbox">Seafood</label>
+					<label for="shellfish" class="allergy"><input id="shellfish" type="checkbox">Shellfish</label>
+					<label for="soy" class="allergy"><input id="soy" type="checkbox">Soy</label>
+					<label for="milk" class="allergy"><input id="milk" type="checkbox">Milk</label>
+					<label for="wheat" class="allergy"><input id="wheat" type="checkbox">Wheat</label>
+					<label for="gluten" class="allergy"><input id="gluten" type="checkbox">Gluten</label>
+					<label for="eggs" class="allergy"><input id="eggs" type="checkbox">Eggs</label>
+					<label for="fruit" class="allergy"><input id="fruit" type="checkbox">Fruit</label>
+					<label for="garlic" class="allergy"><input id="garlic" type="checkbox">Garlic</label>
+					<label for="hotPeppers" class="allergy"><input id="hotPeppers" type="checkbox">Hot Peppers</label>
+					<label for="oats" class="allergy"><input id="oats" type="checkbox">Oats</label>
+					<label for="meat" class="allergy"><input id="meat" type="checkbox">Meat</label>
+					<label for="rice" class="allergy"><input id="rice" type="checkbox">Rice</label>
+					<label for="sesame" class="allergy"><input id="sesame" type="checkbox">Sesame</label>
+					<label for="sulfites" class="allergy"><input id="sulfites" type="checkbox">Sulfites</label>
+					<label for="tartrazine" class="allergy"><input id="tartrazine" type="checkbox">Tartrazine</label>
+					<label for="spacer" class="allergy spacer"><input id="spacer" class="spacer" type="checkbox"></label>
+				</div>
+				<button id="submitIngredient" type="submit" name="submitIngredient">
+					Query ingredient</button>
+			</form>
+			<h3 id="responceCounter">Message From server:</h3>
+			<pre class="responce" align="left" id="responce"></pre>
+		</div>
+
+		<div class="footer">
+			<a class="nav" href="about.html">About</a> | <a class="nav" href="contact.html">Contact</a> | <a class="nav" href="help.html">Help</a>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="../css/theme.css" rel="stylesheet">
+	<link href="../css/layout-login.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+	<!-- JavaScriptScripts -->
+	<script src="../javascript/jquery-3.2.1.js"></script>
+	<!-- <script src="../javascript/profileConector.js" type="text/javascript"></script> -->
+</head>
+
+<body>
+	<div class="header">
+		<img src="../assets/logo.png"/>
+		<a class="nav" href="home.html">Home</a>
+		<a class="nav" href="preferences.html">Preferences</a>
+		<a class="nav" href="ingredient.html">Ingredient</a>
+		<a class="nav" href="login.html">Login/Register</a>
+	</div>
+	<div class="grid-container">
+		<div class="main">
+			<h1>Login or Register</h1>
+			<h3>Login</h3>
+			<form id="login">
+				<label for="loginUserName">User Name</label> <input
+					id="loginUserName" type="text"> <label for="loginPassword">Password</label>
+				<input id="loginPassword" type="password"> <input
+					id="submitLogin" value="Login" type="submit" name="submitLogin">
+			</form>
+
+			<h3>Register</h3>
+			<form id="register">
+				<label for="userName">User Name</label> <input id="userName"
+					type="text" required> <label for="password">Password</label>
+				<input id="password" type="password" required> <label
+					for="confirmPassword">ConfimPassword</label> <input
+					id="confirmPpassword" type="password" required> <label
+					for="email">Email</label> <input id="email" type="email" required>
+				<label for="usualCity">Usual City</label> <input id="usualCity"
+					type="text" required>
+				<button id="submitRegister" type="submit" name="submitRegister">
+					Register</button>
+			</form>
+			<h3 id="responceCounter">Message From server:</h3>
+			<pre class="responce" align="left" id="responce"></pre>
+		</div>
+		<div class="footer">
+			<a class="nav" href="about.html">About</a> | <a class="nav"
+				href="contact.html">Contact</a> | <a class="nav" href="help.html">Help</a>
+		</div>
+	</div>
+
+</body>
+
+</html>
