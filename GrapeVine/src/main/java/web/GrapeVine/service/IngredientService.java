@@ -8,15 +8,9 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
-import javax.persistence.criteria.Order;
-import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
-import java.util.List;
-
 import web.GrapeVine.modules.Allergy;
 import web.GrapeVine.modules.Ingredient;
-import web.GrapeVine.modules.Nutrition;
 
 public class IngredientService {
 
@@ -37,10 +31,24 @@ public class IngredientService {
 		this.criteriaBuilder = criteriaBuilder;
 	}
 
-	public void init() {
-		entityManagerFactory = Persistence.createEntityManagerFactory("hibernate");
-		entityManager = entityManagerFactory.createEntityManager();
-		criteriaBuilder = entityManager.getCriteriaBuilder();
+	public boolean init() {
+		
+		if(entityManager == null) {
+			try {
+				entityManagerFactory = Persistence.createEntityManagerFactory("hibernate");
+				entityManager = entityManagerFactory.createEntityManager();
+				criteriaBuilder = entityManager.getCriteriaBuilder();
+				System.out.println("Server initialized");//TODO look into serialization  
+				return true;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("failed to initilaze");
+				return false;
+			}
+		}
+		System.out.println("Server already Initialized");
+		return false;
 	}
 
 	public Ingredient getIngredient(Long id) {

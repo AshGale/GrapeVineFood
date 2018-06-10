@@ -27,6 +27,13 @@ public class IngredientResourse {
 	public IngredientService service = new IngredientService();
 
 	@GET
+	@Path("/init")
+	public boolean initServer() {//TODO put in server Resourse
+		http://localhost:8080/GrapeVine/api/ingredient/init
+		return service.init();
+	}
+	
+	@GET
 	public Response getFilterRequestIngredient(@QueryParam("name") String name) {
 
 		List<Ingredient> getIngredient = service.getIngredient(name);
