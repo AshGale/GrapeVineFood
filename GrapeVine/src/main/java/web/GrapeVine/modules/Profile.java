@@ -1,6 +1,7 @@
 package web.GrapeVine.modules;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,9 @@ public class Profile {
 	Long idProfile;
 	String role;
 	String name;
+	@Column(unique=true)
 	String userName;
+	@Column(unique=true)
 	String email;
 	String password;//TODO add encryption and privacy
 	//Eating Habits

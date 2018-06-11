@@ -29,7 +29,7 @@ public class IngredientResourse {
 	@GET
 	@Path("/init")
 	public boolean initServer() {//TODO put in server Resourse
-		http://localhost:8080/GrapeVine/api/ingredient/init
+		//http://localhost:8080/GrapeVine/api/ingredient/init
 		return service.init();
 	}
 	

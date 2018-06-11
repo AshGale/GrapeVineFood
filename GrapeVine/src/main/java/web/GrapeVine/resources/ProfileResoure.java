@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import web.GrapeVine.modules.Login;
 import web.GrapeVine.modules.Profile;
 import web.GrapeVine.service.ProfileService;
 
@@ -28,6 +29,24 @@ public class ProfileResoure {
 	public Response getFilterRequestProfile(@QueryParam("username") String username, @QueryParam("password") String password) {
 
 		Profile getprofile = service.getProfile(username,password);
+		return Response.ok().entity(getprofile).build();
+
+	}
+	
+	@GET
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public Response login(@QueryParam("username") String username, @QueryParam("password") String password) {
+
+		Profile getprofile = service.getProfile(username,password);
+		return Response.ok().entity(getprofile).build();
+
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public Response requetLogin(Login login) {
+
+		Profile getprofile = service.login(login);
 		return Response.ok().entity(getprofile).build();
 
 	}
@@ -65,5 +84,7 @@ public class ProfileResoure {
 		return Response.ok().entity(null).build();
 
 	}
+	
+	
 
 }

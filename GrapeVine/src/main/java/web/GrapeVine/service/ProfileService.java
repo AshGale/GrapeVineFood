@@ -8,6 +8,8 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+
+import web.GrapeVine.modules.Login;
 import web.GrapeVine.modules.Profile;
 
 public class ProfileService {
@@ -30,6 +32,7 @@ public class ProfileService {
 	}
 
 	public void init() {
+		//TODO optimize for DataBaseService
 		entityManagerFactory = Persistence.createEntityManagerFactory("hibernate");
 		entityManager = entityManagerFactory.createEntityManager();
 		criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -60,7 +63,6 @@ public class ProfileService {
 		// profile.getId());
 		// dbProfile = profile;
 		entityManager.getTransaction().commit();
-		entityManager.flush();
 		return profile;
 	}
 
@@ -93,5 +95,10 @@ public class ProfileService {
 
 		entityManager.getTransaction().commit();
 		return dbProfile;
+	}
+
+	public Profile login(Login login) {
+		
+		return null;
 	}
 }
